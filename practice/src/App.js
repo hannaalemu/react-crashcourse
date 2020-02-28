@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 
-import Users from './components/users';
-import AddUser from './components/input';
-
+import ClassRoom from './components/classRoom';
+import Temp from './components/pureComponent';
 class App extends Component {
 
   render() {
     return (
       <div className="App" className="container">
-       <Users></Users>
-      <AddUser></AddUser>
+      <ClassRoom />
+      <Temp />
       </div>
     );
   }

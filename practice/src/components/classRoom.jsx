@@ -4,6 +4,7 @@ import AddStudent from './addStudent';
 
 export default class ClassRoom extends Component {
 
+    //Constructor only runs once
     constructor() {
         super();
 
@@ -22,6 +23,43 @@ export default class ClassRoom extends Component {
         }
     }
 
+    componentWillMount() {
+        //runs after contructor, render hasnt happened yet but we have initial state and props, we can set state here ex. if we wanna change state based on props. 
+        //runs only once as well - things to do globally like window.innerwidth 
+        console.log('component will mount')
+    }
+
+    componentDidMount () {
+        //runs after render,
+        //AJAX calls, subscriptions best place, we can also setstate but it would rerender
+        //runs once as well
+        console.log('component did mount')
+    }
+
+    componentWillReceiveProps() {
+
+    }
+
+    shouldComponentUpdate() {
+        //have to return true or false
+    }
+
+    componentWillUpdate() {
+        //after initial run, after should update runs
+        // similar to did mount
+        //dont set state
+    }
+
+    componentDidUpdate() {
+        //has previous props and previus state
+    }
+
+    componentWillUnmount() {
+        //to undo things, clean up
+        //there is no component did unmount
+    }
+
+    
     deleteStudent = (index, event) => {
         const studentsCopy = Object.assign([], this.state.students);
 
@@ -37,6 +75,8 @@ export default class ClassRoom extends Component {
         console.log(newStudent);
     }
     render() {
+        //runs after component will mount, try not to set state here\
+        console.log('render')
         return (
             <>
             <div>
